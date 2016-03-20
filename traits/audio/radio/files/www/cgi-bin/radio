@@ -96,6 +96,7 @@ echo '
 <a href="?volup" class="btn btn-default btn-sm" role="button">&nbsp;<i class="fa fa-volume-up"></i>&nbsp;</a>
 <a href="?radiostart" class="btn btn-default btn-sm" role="button">Start</a>
 <a href="?radiostop" class="btn btn-default btn-sm" role="button">Stop</a>
+<a href="?radiooff" class="btn btn-default btn-sm" role="button">Poweroff</a>
 <a href="?squeezestart" class="btn btn-default btn-sm" role="button">Squeeze</a></div>
 <a href="?shairport" class="btn btn-default btn-sm" role="button">Shairport</a>
 </div>
@@ -335,6 +336,10 @@ if [ "$QUERY_STRING" == "radiostop" ] ; then
   /etc/init.d/radio stop
   killall madplay wget
   killall shairport-sync
+fi
+
+if [ "$QUERY_STRING" == "radiooff" ] ; then
+  /sbin/poweroff
 fi
 
 if [ "$QUERY_STRING" == "squeezestart" ] ; then
